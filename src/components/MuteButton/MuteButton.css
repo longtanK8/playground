@@ -1,0 +1,85 @@
+/* Mute button bubble styling */
+.mute-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.mute-button:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.mute-button:active {
+  transform: translateY(0);
+}
+
+/* Muted state - lower opacity */
+.mute-button.muted {
+  opacity: 0.6;
+}
+
+/* Playing state - full opacity */
+.mute-button.playing {
+  opacity: 1;
+}
+
+/* Music note icon styling */
+.music-note-icon {
+  width: 32px;
+  height: 32px;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Add pulse glow animation when music is playing */
+.mute-button.playing .music-note-icon {
+  animation: float 3s ease-in-out infinite, pulse-glow 2s ease-in-out infinite;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Pulsing glow animation for playing state */
+@keyframes pulse-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.8));
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .mute-button {
+    bottom: 1rem;
+    right: 1rem;
+    width: 50px;
+    height: 50px;
+  }
+
+  .music-note-icon {
+    width: 24px;
+    height: 24px;
+  }
+}

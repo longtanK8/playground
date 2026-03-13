@@ -1,0 +1,16 @@
+# Background Music Directory
+
+Place your background music file here with this name:
+**background-music.mp3**
+
+Example structure:
+```
+public/music/background-music.mp3
+```
+
+You can find free music from:
+- Pixabay Music (https://pixabay.com/music/)
+- Free Music Archive (https://freemusicarchive.org/)
+- OpenGameArt (https://opengameart.org/music)
+
+These sites provide free-to-use music for projects.
