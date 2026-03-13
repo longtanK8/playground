@@ -49,17 +49,34 @@
   text-transform: uppercase;
 }
 
+/* Subtitle links styling */
+.subtitle-link {
+  color: #a855f7;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+}
+
+.subtitle-link:hover {
+  color: #22d3ee;
+  border-bottom-color: #22d3ee;
+  text-shadow: 0 0 8px rgba(34, 211, 238, 0.5);
+}
+
 /* Badges */
 .badges {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
   gap: 0.6rem;
-  max-width: 600px;
+  max-width: 900px;
   pointer-events: auto;
 }
 
 .badge {
+  display: inline-block;
   padding: 0.35rem 0.9rem;
   border-radius: 9999px;
   border: 1px solid rgba(168, 85, 247, 0.5);
@@ -70,4 +87,316 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
   backdrop-filter: blur(8px);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.badge:hover {
+  border-color: rgba(168, 85, 247, 0.8);
+  background: rgba(168, 85, 247, 0.2);
+  color: #e9d5ff;
+}
+
+/* Swipe Menu Container */
+.swipe-menu-container {
+  position: fixed;
+  bottom: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 50;
+  pointer-events: auto;
+}
+
+.swipe-hint {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0;
+  opacity: 0.7;
+  animation: pulse-hint 2s ease-in-out infinite;
+}
+
+@keyframes pulse-hint {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.swipe-arrow-wrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(168, 85, 247, 0.3);
+  user-select: none;
+}
+
+.swipe-arrow-wrapper:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 12px 48px rgba(168, 85, 247, 0.6);
+}
+
+.swipe-arrow-wrapper:active {
+  cursor: grabbing;
+}
+
+.swipe-arrow {
+  width: 40px;
+  height: 40px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swipe-arrow svg {
+  width: 100%;
+  height: 100%;
+  stroke: currentColor;
+}
+
+/* Player Name Entry Section */
+.player-name-section {
+  pointer-events: auto;
+  position: absolute;
+  top: 4rem;
+  z-index: 20;
+}
+
+.name-input-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(20, 20, 30, 0.6);
+  padding: 0.75rem 1.25rem;
+  border-radius: 50px;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(168, 85, 247, 0.1);
+}
+
+.player-name-input {
+  background: transparent;
+  border: none;
+  color: #e5e7eb;
+  font-size: 1rem;
+  outline: none;
+  min-width: 250px;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.player-name-input::placeholder {
+  color: #9ca3af;
+}
+
+.player-name-input:focus {
+  color: #a855f7;
+}
+
+.random-name-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%);
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.random-name-button:hover {
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.6);
+}
+
+.random-name-button svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+}
+
+.enter-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.enter-button:hover:not(:disabled) {
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.6);
+}
+
+.enter-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.enter-button svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+}
+
+.enter-button:hover:not(:disabled) svg {
+  animation: slideRight 0.3s ease-in-out;
+}
+
+/* Welcome message container */
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Welcome message after name submission */
+.welcome-message {
+  font-size: 0.95rem;
+  color: #d1d5db;
+  text-align: center;
+  letter-spacing: 0.05em;
+  background: rgba(20, 20, 30, 0.4);
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  backdrop-filter: blur(10px);
+  font-weight: 500;
+}
+
+.player-name-display {
+  color: #a855f7;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+/* Change Identity button */
+.change-identity-button {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  background: none;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  opacity: 0.7;
+}
+
+.change-identity-button:hover {
+  color: #a855f7;
+  background: rgba(168, 85, 247, 0.1);
+  opacity: 1;
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .player-name-section {
+    top: 2rem;
+  }
+
+  .name-input-group {
+    gap: 0.75rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .player-name-input {
+    min-width: 180px;
+    font-size: 0.9rem;
+  }
+
+  .random-name-button,
+  .enter-button {
+    width: 36px;
+    height: 36px;
+  }
+
+  .random-name-button svg,
+  .enter-button svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .welcome-message {
+    font-size: 0.85rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .change-identity-button {
+    font-size: 0.7rem;
+  }
+
+  .badges {
+    max-width: 100vw;
+    gap: 0.4rem;
+    padding: 0 1rem;
+  }
+
+  .badge {
+    font-size: 0.65rem;
+    padding: 0.3rem 0.7rem;
+  }
+
+  .swipe-menu-container {
+    bottom: 3rem;
+  }
+
+  .swipe-arrow-wrapper {
+    width: 70px;
+    height: 70px;
+  }
+
+  .swipe-arrow svg {
+    width: 34px;
+    height: 34px;
+  }
+
+  .swipe-hint {
+    font-size: 0.75rem;
+  }
 }
